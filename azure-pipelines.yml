@@ -13,3 +13,7 @@ steps:
 - task: DotNetCoreInstaller@0
   inputs:
     version: '2.1.400'
+
+- script: dotnet restore
+- script: dotnet clean
+- script: dotnet build
