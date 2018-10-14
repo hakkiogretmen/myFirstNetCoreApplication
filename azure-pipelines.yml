@@ -7,7 +7,7 @@
 
 jobs:
 
-- job:buildandpublish
+- job: buildandpublish
   pool:
     vmImage: 'Ubuntu 16.04'
   
