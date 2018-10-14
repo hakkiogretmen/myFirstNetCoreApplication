@@ -17,3 +17,5 @@ steps:
 - script: dotnet restore
 - script: dotnet clean
 - script: dotnet build
+
+- task: PublishBuildArtifacts@1
