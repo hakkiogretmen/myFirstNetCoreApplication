@@ -8,7 +8,11 @@ jobs:
 
   pool:
     vmImage: 'Ubuntu 16.04'
+    
+  variables:
+    buildConfiguration: 'Release'
 
+  steps:
   - task: DotNetCoreInstaller
     inputs:
       version: '2.1.400'
