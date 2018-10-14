@@ -17,5 +17,6 @@ steps:
 - script: dotnet restore
 - script: dotnet clean
 - script: dotnet build
+- script: dotnet publish --output $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
