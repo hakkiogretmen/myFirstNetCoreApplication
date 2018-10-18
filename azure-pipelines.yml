@@ -28,5 +28,5 @@ jobs:
   
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: '5a6aabae-8488-46a7-a4b6-057050e83cd1'
-      webAppName: 'myFirstAzureApp'
+      azureSubscription: 'AzurePassConnection_1'
+      webAppName: 'azureDevOpsProject02'
