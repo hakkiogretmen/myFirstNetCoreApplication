@@ -22,14 +22,9 @@ jobs:
   - script: dotnet clean
   - script: dotnet build
   - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
-  
-  - task: PublishBuildArtifacts@1
-  
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      artifactName: drop
 
   - task: AzureRmWebAppDeployment@3
     inputs:
       azureSubscription: 'azurepasswebapp'
       webAppName: 'azureDevOpsProject02'
+      Package: $(Build.ArtifactStagingDirectory)
