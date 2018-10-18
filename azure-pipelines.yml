@@ -2,7 +2,6 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-#test for Jenkins - 8
 
 
 jobs:
@@ -32,6 +31,6 @@ jobs:
   
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: 'AzurePassConnection_1'
+      azureSubscription: 'Azure Pass (5a6aabae-8488-46a7-a4b6-057050e83cd1)'
       webAppName: 'azureDevOpsProject02'
       Package: $(System.ArtifactsDirectory)/**/.zip
