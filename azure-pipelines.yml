@@ -24,6 +24,10 @@ jobs:
   - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
   
   - task: PublishBuildArtifacts@1
+  
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      artifactName: drop
 
   - task: AzureRmWebAppDeployment@3
     inputs:
