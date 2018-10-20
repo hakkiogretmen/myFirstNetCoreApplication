@@ -24,9 +24,3 @@ jobs:
   - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
   
   - task: PublishBuildArtifacts@1
-  
-  - task: AzureRmWebAppDeployment@3
-    inputs:
-      azureSubscription: 'azurepasswebapp'
-      webAppName: 'azureDevOpsProject02'
-      Package: $(Build.ArtifactStagingDirectory)
