@@ -21,10 +21,6 @@ jobs:
   - script: dotnet restore
   - script: dotnet clean
   - script: dotnet build
-
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: publish
-      publishWebProjects: True
-      arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-      zipAfterPublish: True
+  - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  
+  - task: PublishBuildArtifacts@1
