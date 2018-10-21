@@ -22,5 +22,4 @@ jobs:
   - script: dotnet clean
   - script: dotnet build
   - script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
-  
-  - task: PublishBuildArtifacts@1
+
