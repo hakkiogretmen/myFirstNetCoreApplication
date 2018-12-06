@@ -1,0 +1,11 @@
+- name: run the playbook on the localhost
+  hosts: localhost
+  become: true
+  tasks:
+  - name: print out the hostname
+    command: hostname
+  - name: Install a .deb package from the internet.
+    apt:
+      deb: https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+      name: dotnet-sdk-2.1
+      update_cache: yes
