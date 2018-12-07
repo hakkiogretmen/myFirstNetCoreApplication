@@ -1,5 +1,5 @@
 FROM microsoft/dotnet:aspnetcore-runtime AS runtime
 WORKDIR /app
 RUN echo 'copying .Net Core application artifacts'
-COPY $(System.DefaultWorkingDirectory)/AzureDevOpsTest-Jenkins-CI/drop/bin/Release/* .
+COPY . .
 ENTRYPOINT ["dotnet","myFirstNetCoreApplication.dll"]
