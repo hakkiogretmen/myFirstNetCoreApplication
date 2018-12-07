@@ -33,7 +33,7 @@ pipeline {
 		 steps {
 		  sh 'cp Dockerfile2 bin/Release/Dockerfile2'
 		  sh 'cp kubedeployment.yaml bin/Release/kubedeployment.yaml'
-		  sh 'cp wwwroot bin/Release/netcoreapp2.1/wwwroot'
+		  sh 'cp -r wwwroot/images bin/Release/netcoreapp2.1/images/'
 		 }
 	 }	 
   stage('Archive') {
