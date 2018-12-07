@@ -29,6 +29,11 @@ pipeline {
     sh 'dotnet build --configuration Release'
    }
   }
+	 stage('Copy DockerFile to Release folder') {
+		 steps {
+		  sh 'cp Dockerfile bin/Release/Dockerfile'
+		 }
+	 }	 
   stage('Archive') {
       steps {
 		archive 'bin/Release/**'
