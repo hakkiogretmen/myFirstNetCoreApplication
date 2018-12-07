@@ -1,5 +1,6 @@
 - name: run the playbook on the localhost
   hosts: buildservers
+  become: true
   tasks:
   - name: print out the hostname
     command: hostname
