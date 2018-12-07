@@ -1,5 +1,5 @@
-FROM microsoft/aspnetcore-build AS runtime
+FROM microsoft/dotnet:2.1-sdk AS runtime
 WORKDIR /app
 RUN echo 'copying .Net Core application artifacts'
-COPY . .
+COPY netcoreapp2.1/. .
 ENTRYPOINT ["dotnet","myFirstNetCoreApplication.dll"]
