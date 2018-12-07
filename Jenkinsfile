@@ -31,7 +31,7 @@ pipeline {
   }
 	 stage('Copy DockerFile to Release folder') {
 		 steps {
-		  sh 'cp Dockerfile bin/Release/Dockerfile'
+		  sh 'cp Dockerfile2 bin/Release/Dockerfile2'
 		  sh 'cp kubedeployment.yaml bin/Release/kubedeployment.yaml'
 		 }
 	 }	 
