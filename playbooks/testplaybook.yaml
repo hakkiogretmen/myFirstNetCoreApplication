@@ -1,6 +1,7 @@
 - name: run the playbook on the localhost
-  hosts: localhost
+  hosts: buildservers
   become: true
+  become_user: jenkins
   tasks:
   - name: print out the hostname
     command: hostname
