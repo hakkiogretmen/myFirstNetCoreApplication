@@ -1,0 +1,61 @@
+# Provisioning of several disk for each container
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: azuredevopsdeployment
+  labels:
+    app: azuredevopsapp
+spec:
+  serviceName: azuredevopspodsvc
+  replicas: 3
+  selector:
+    matchLabels:
+      app: azuredevopsapp
+  template:
+    metadata:
+      labels:
+        app: azuredevopsapp
+    spec:
+      containers:
+      - name: azuredevopscontainer
+        image: aksacrhakki2.azurecr.io/azuredevopsdemo
+        ports:
+        - name: port80
+          containerPort: 80
+        volumeMounts:
+        - mountPath: "/data"
+          name: volume
+  volumeClaimTemplates:
+  - metadata:
+      name: volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: default
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: azuredevopsapp
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: default
+  resources:
+    requests:
+      storage: 5Gi
