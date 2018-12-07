@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:aspnetcore-runtime AS runtime
+FROM microsoft/aspnetcore-build AS runtime
 WORKDIR /app
 RUN echo 'copying .Net Core application artifacts'
 COPY . .
